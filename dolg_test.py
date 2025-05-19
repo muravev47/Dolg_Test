@@ -101,3 +101,11 @@ new_task_entry.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=5)
 add_button = tk.Button(new_task_frame, text="Добавить", command=add_task)
 add_button.pack(side=tk.LEFT)
 
+task_list_frame = tk.Frame(root)
+task_list_frame.pack(pady=10, padx=10, fill=tk.BOTH, expand=True)
+
+update_task_list()
+
+def on_closing():
+    save_tasks(tasks)
+    root.destroy()
