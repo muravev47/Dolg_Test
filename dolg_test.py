@@ -109,3 +109,6 @@ update_task_list()
 def on_closing():
     save_tasks(tasks)
     root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
+root.mainloop()
