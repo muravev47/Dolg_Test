@@ -41,3 +41,16 @@ def edit_task(index):
         else:
             messagebox.showwarning("Внимание", "Пожалуйста, введите новое описание задачи.")
 
+    edit_window = tk.Toplevel(root)
+    edit_window.title("Редактировать задачу")
+
+    edit_label = tk.Label(edit_window, text="Новое описание:")
+    edit_label.pack(pady=5)
+
+    edit_entry = tk.Entry(edit_window, width=40)
+    edit_entry.insert(0, tasks[index]["task"])
+    edit_entry.pack(pady=5)
+
+    save_button = tk.Button(edit_window, text="Сохранить", command=save_edit)
+    save_button.pack(pady=10)
+
