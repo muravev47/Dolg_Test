@@ -26,3 +26,7 @@ def add_task():
         new_task_entry.delete(0, tk.END)
     else:
         messagebox.showwarning("Внимание", "Пожалуйста, введите описание задачи.")
+
+def toggle_complete(index):
+    tasks[index]["status"] = not tasks[index]["status"]
+    update_task_list()
