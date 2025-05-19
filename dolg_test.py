@@ -54,3 +54,8 @@ def edit_task(index):
     save_button = tk.Button(edit_window, text="Сохранить", command=save_edit)
     save_button.pack(pady=10)
 
+def delete_task(index):
+    if messagebox.askyesno("Подтверждение", "Вы уверены, что хотите удалить эту задачу?"):
+        del tasks[index]
+        update_task_list()
+
