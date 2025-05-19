@@ -59,3 +59,24 @@ def delete_task(index):
         del tasks[index]
         update_task_list()
 
+def update_task_list():
+    for widget in task_list_frame.winfo_children():
+        widget.destroy()
+
+    for i, task in enumerate(tasks):
+        task_frame = tk.Frame(task_list_frame)
+        task_frame.pack(pady=2, fill=tk.X)
+
+        status_text = "[x]" if task["status"] else "[ ]"
+        task_label = tk.Label(task_frame, text=f"{status_text} {task['task']}", anchor=tk.W)
+        task_label.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        complete_button = tk.Button(task_frame, text="Выполнено", command=lambda idx=i: toggle_complete(idx))
+        complete_button.pack(side=tk.LEFT, padx=2)
+
+        edit_button = tk.Button(task_frame, text="Редактировать", command=lambda idx=i: edit_task(idx))
+        edit_button.pack(side=tk.LEFT, padx=2)
+
+        delete_button = tk.Button(task_frame, text="Удалить", command=lambda idx=i: delete_task(idx))
+        delete_button.pack(side=tk.LEFT, padx=2)
+
