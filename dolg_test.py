@@ -30,3 +30,14 @@ def add_task():
 def toggle_complete(index):
     tasks[index]["status"] = not tasks[index]["status"]
     update_task_list()
+
+def edit_task(index):
+    def save_edit():
+        new_description = edit_entry.get()
+        if new_description:
+            tasks[index]["task"] = new_description
+            update_task_list()
+            edit_window.destroy()
+        else:
+            messagebox.showwarning("Внимание", "Пожалуйста, введите новое описание задачи.")
+
