@@ -80,3 +80,10 @@ def update_task_list():
         delete_button = tk.Button(task_frame, text="Удалить", command=lambda idx=i: delete_task(idx))
         delete_button.pack(side=tk.LEFT, padx=2)
 
+
+root = tk.Tk()
+root.title("Диспетчер задач:")
+root.geometry("600x400") 
+
+style = ttk.Style()
+style.theme_use('clam')
