@@ -12,3 +12,8 @@ def load_tasks():
                 status, task = line.strip().split(";", 1)
                 tasks.append({"task": task, "status": status == "True"})
     return tasks
+
+def save_tasks(tasks):
+    with open(TASK_FILE, "w") as f:
+        for task in tasks:
+            f.write(f"{task['status']};{task['task']}\n")
