@@ -84,6 +84,7 @@ def update_task_list():
 root = tk.Tk()
 root.title("Диспетчер задач:")
 root.geometry("600x400") 
-
 style = ttk.Style()
 style.theme_use('clam')
+
+tasks = load_tasks()
