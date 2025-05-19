@@ -82,9 +82,22 @@ def update_task_list():
 
 
 root = tk.Tk()
-root.title("Диспетчер задач:")
+root.title("Task Manager - Python")
 root.geometry("600x400") 
 style = ttk.Style()
 style.theme_use('clam')
 
 tasks = load_tasks()
+
+title_label = tk.Label(root, text="Диспетчер задач:", font=("Arial", 24, "bold"))
+title_label.pack(pady=10)
+
+new_task_frame = tk.Frame(root)
+new_task_frame.pack(pady=5, padx=10, fill=tk.X)
+new_task_label = tk.Label(new_task_frame, text="Новая задача:")
+new_task_label.pack(side=tk.LEFT)
+new_task_entry = tk.Entry(new_task_frame, width=40)
+new_task_entry.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=5)
+add_button = tk.Button(new_task_frame, text="Добавить", command=add_task)
+add_button.pack(side=tk.LEFT)
+
