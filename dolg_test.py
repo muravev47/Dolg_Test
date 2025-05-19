@@ -17,3 +17,12 @@ def save_tasks(tasks):
     with open(TASK_FILE, "w") as f:
         for task in tasks:
             f.write(f"{task['status']};{task['task']}\n")
+
+def add_task():
+    task_description = new_task_entry.get()
+    if task_description:
+        tasks.append({"task": task_description, "status": False})
+        update_task_list()
+        new_task_entry.delete(0, tk.END)
+    else:
+        messagebox.showwarning("Внимание", "Пожалуйста, введите описание задачи.")
